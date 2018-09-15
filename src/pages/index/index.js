@@ -2,11 +2,13 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
-import { add, minus, asyncAdd } from '../../actions/counter'
+import { add, minus, asyncAdd } from '../../store/actions/counter.js'
 
 import './index.less'
 
-
+/**
+ * 装饰器
+ */
 @connect(({ counter }) => ({
   counter
 }), (dispatch) => ({
@@ -20,14 +22,18 @@ import './index.less'
     dispatch(asyncAdd())
   }
 }))
-class Index extends Component {
+export default class Index extends Component {
 
-    config = {
+  constructor () {
+    this.state = {}
+  }
+
+  config = {
     navigationBarTitleText: '首页'
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+    // console.log(this.props, nextProps)
   }
 
   componentWillUnmount () { }
@@ -48,5 +54,3 @@ class Index extends Component {
     )
   }
 }
-
-export default Index
