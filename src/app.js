@@ -23,10 +23,11 @@ class App extends Component {
       "pages/mine/mine"
     ],
     window: {
-      backgroundTextStyle: 'light',
+      backgroundTextStyle: 'dark',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black',
+      backgroundColor: "#eee"
     },
     tabBar: {
       color: "#626567",

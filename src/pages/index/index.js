@@ -2,47 +2,37 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text, ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
-import { add, minus, asyncAdd } from '../../store/actions/counter.js'
-
 import './index.less'
 
+import { getWindowHeight } from '../../common/utils'
+
+import OrderItem from '../../bcomponents/OrderItem/OrderItem'
+
 /**
- * 装饰器
+ * 首页
  */
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
 export default class Index extends Component {
 
   constructor () {
-    this.state = {}
+    this.state = {
+      scrollHeight: getWindowHeight()
+    }
   }
 
   config = {
     navigationBarTitleText: '首页',
-    window: {
-      // 允许下拉刷新
-      enablePullDownRefresh: true,
-    }
+    // 允许下拉刷新
+    enablePullDownRefresh: true
   }
 
-  componentWillReceiveProps (nextProps) {
-    // console.log(this.props, nextProps)
-  }
+  /**
+   * 用于优化组件性能
+   */
+  componentWillReceiveProps (nextProps) {}
 
-  componentWillUnmount () { }
+  componentWillUnmount () {}
 
-  componentDidShow () { }
+  componentDidShow () {}
 
   componentDidHide () { }
 
@@ -58,72 +48,48 @@ export default class Index extends Component {
   /**
    * 获取初始化数据
    */
-  getInitData(){
+  getInitData() {
     console.log('====================================');
     console.log('获取初始化数据');
     console.log('====================================');
   }
 
   /**
+   * 微信的方法：下拉刷新
+   */
+  onPullDownRefresh() {
+    console.log('====================================');
+    console.log('下拉刷新');
+    console.log('====================================');
+  }
+
+  /**
    * 获取下一页的数据
    */
-  getNextListData(event){
-    const scrollHeight = event.scrollHeight
-    // console.log('====================================');
-    // console.log(event);
-    // console.log('====================================');
+  getNextListData(){
+    console.log('====================================');
+    console.log("获取下一页的数据");
+    console.log('====================================');
   }
 
   render () {
 
+    const { scrollHeight } = this.state
+
     return (
-      <View>
-        {/* <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View> */}
+      <View className="p-index">
         <ScrollView
           className='scrollview'
           scrollY
           scrollWithAnimation
+          enableBackToTop
           scrollTop='0'
-          style='height: 150px;'
           lowerThreshold='20'
-          upperThreshold='-20'
-          onScrolltoupper={this.getInitData}
-          onScroll={this.getNextListData}
-        >
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
-          <View>
-            <Text>123</Text>
-          </View>
+          upperThreshold='20'
+          style={{height: scrollHeight}}
+          onScrolltolower={this.getNextListData}>
+          <OrderItem />
+          <OrderItem />
         </ScrollView>
       </View>
     )
