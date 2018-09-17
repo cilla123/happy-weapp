@@ -4,7 +4,9 @@ import { connect } from '@tarojs/redux'
 
 import './mine.less'
 
-export default class Mine extends Component {
+import CommonComponent from '../../bcomponents/CommonComponent/CommonComponent'
+
+export default class Mine extends CommonComponent {
 
   constructor () {
     this.state = {}

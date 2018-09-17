@@ -6,6 +6,8 @@ import { add, minus, asyncAdd } from '../../store/actions/counter.js'
 
 import './order.less'
 
+import CommonComponent from '../../bcomponents/CommonComponent/CommonComponent'
+
 @connect(({ counter }) => ({
   counter
 }), (dispatch) => ({
@@ -19,7 +21,7 @@ import './order.less'
     dispatch(asyncAdd())
   }
 }))
-export default class Order extends Component {
+export default class Order extends CommonComponent {
 
   constructor () {
     this.state = {}

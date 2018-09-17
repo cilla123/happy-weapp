@@ -8,10 +8,12 @@ import { getWindowHeight } from '../../common/utils'
 
 import OrderItem from '../../bcomponents/OrderItem/OrderItem'
 
+import CommonComponent from '../../bcomponents/CommonComponent/CommonComponent'
+
 /**
  * 首页
  */
-export default class Index extends Component {
+export default class Index extends CommonComponent {
 
   constructor () {
     this.state = {

@@ -11,10 +11,12 @@ import './app.less'
 // redux的store
 const store = configStore()
 
+import CommonComponent from './bcomponents/CommonComponent/CommonComponent'
+
 /**
  * 入口文件
  */
-class App extends Component {
+class App extends CommonComponent {
 
   config = {
     pages: [
