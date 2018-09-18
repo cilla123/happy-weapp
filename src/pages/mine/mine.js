@@ -13,7 +13,8 @@ export default class Mine extends CommonComponent {
   }
 
   config = {
-    navigationBarTitleText: '我的'
+    navigationBarTitleText: '我的',
+    navigationBarBackgroundColor: '#fff',
   }
 
   componentWillReceiveProps (nextProps) {

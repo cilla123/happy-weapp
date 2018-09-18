@@ -11,6 +11,8 @@ import OrderItem from '../../bcomponents/OrderItem/OrderItem'
 
 import CommonComponent from '../../bcomponents/CommonComponent/CommonComponent'
 
+import ThemeColor from '../../common/constants/color'
+
 /**
  * 首页
  */
@@ -25,7 +27,9 @@ export default class Index extends CommonComponent {
   config = {
     navigationBarTitleText: '首页',
     // 允许下拉刷新
-    enablePullDownRefresh: true
+    enablePullDownRefresh: true,
+    navigationBarBackgroundColor: '#3A82F0',
+    navigationBarTextStyle: '#fff',
   }
 
   /**
