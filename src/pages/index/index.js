@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text, ScrollView } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
+import { AtIcon } from 'taro-ui'
 
 import './index.less'
 
@@ -80,6 +81,7 @@ export default class Index extends CommonComponent {
 
     return (
       <View className="p-index">
+        <AtIcon prefixClass='icon' value='guanzhu' size='30' color='#000'></AtIcon>
         <ScrollView
           className='scrollview'
           scrollY
